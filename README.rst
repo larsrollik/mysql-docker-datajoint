@@ -1,7 +1,7 @@
 MySQL for DataJoint
 ###################
 
-Docker image of MySQL (version 5.7 or 8.0) that comes configured for use with DataJoint!
+Docker image of MySQL (version ~~5.7~~ or 8.0) that comes configured for use with DataJoint!
 
 
 Administering the MySQL server
@@ -124,4 +124,12 @@ A strategy such as ``mysqldump`` has the benefit of being able to perform a back
 ``mysqldump -h$DJ_HOST -u${DJ_USER} -p$DJ_PASS --system=user --quick -v --databases schema_a schema_b schema_c > backup.sql``
 
 In the above, we connect to MySQL server ``$DJ_HOST`` using user ``$DJ_USER`` with password ``$DJ_PASS``. We perform a backup of the specific schemas ``schema_a``, ``schema_b``, ``schema_c`` written to a file ``backup.sql``. Optional flags were added to include: user management info (usernames + grants), skip caching to commit more often to file, and write more verbose logs.
+
+
+---
+Modifications
+******
+
+- switched to mysql/8.0 image by default
+- replication setup in ``config/my.cnf``. off by default.
 
